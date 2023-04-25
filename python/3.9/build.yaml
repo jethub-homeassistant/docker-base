@@ -1,5 +1,5 @@
 image: jethubjhaos/{arch}-base-python
-shadow_repository: ghcr.io/jethubjhaos
+shadow_repository: ghcr.io/jethub-homeassistant
 build_from:
   aarch64: "jethubjhaos/aarch64-base:"
   armv7: "jethubjhaos/armv7-base:"
@@ -15,4 +15,4 @@ args:
   GPG_KEY: E3FF2839C048B25C084DEBE9B26995E310250568
 labels:
   io.hass.base.name: python
-  org.opencontainers.image.source: https://github.com/jethubjhaos/docker-base
+  org.opencontainers.image.source: https://github.com/jethub-homeassistant/docker-base

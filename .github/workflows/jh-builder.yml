@@ -32,34 +32,34 @@ jobs:
 
     - name: Get information Alpine
       id: info_alpine
-      uses: jethubjhaos/actions/helpers/info@master-jethub
+      uses: jethub-homeassistant/actions/helpers/info@master-jethub
       with:
         path: "${{ github.workspace }}/alpine"
 
     - name: Get information Debian
       id: info_debian
-      uses: jethubjhaos/actions/helpers/info@master-jethub
+      uses: jethub-homeassistant/actions/helpers/info@master-jethub
       with:
         path: "${{ github.workspace }}/debian"
 
     - name: Get information Ubuntu
       id: info_ubuntu
-      uses: jethubjhaos/actions/helpers/info@master-jethub
+      uses: jethub-homeassistant/actions/helpers/info@master-jethub
       with:
         path: "${{ github.workspace }}/ubuntu"
 
     - name: Get information Raspbian
       id: info_raspbian
-      uses: jethubjhaos/actions/helpers/info@master-jethub
+      uses: jethub-homeassistant/actions/helpers/info@master-jethub
       with:
         path: "${{ github.workspace }}/raspbian"
-      
+
     - name: Get version
       id: version
-      uses: jethubjhaos/actions/helpers/version@master-jethub
+      uses: jethub-homeassistant/actions/helpers/version@master-jethub
       with:
         type: ${{ env.BUILD_TYPE }}
-  
+
   build_alpine:
     name: Build ${{ matrix.arch }} alpine ${{ matrix.version }} base image
     needs: init
@@ -95,9 +95,9 @@ jobs:
         elif [[ "${{ env.ALPINE_LATEST }}" != "${{ matrix.version }}" ]]; then
           echo "BUILD_ARGS=--no-latest" >> $GITHUB_ENV
         fi
-    
+
     - name: Build base image
-      uses: jethubjhaos/builder@2023.03.0
+      uses: jethub-homeassistant/builder@2023.03.0
       with:
         args: |
           $BUILD_ARGS \
@@ -143,9 +143,9 @@ jobs:
         elif [[ "${{ env.DEBIAN_LATEST }}" != "${{ matrix.version }}" ]]; then
           echo "BUILD_ARGS=--no-latest" >> $GITHUB_ENV
         fi
-    
+
     - name: Build base image
-      uses: jethubjhaos/builder@2023.03.0
+      uses: jethub-homeassistant/builder@2023.03.0
       with:
         args: |
           $BUILD_ARGS \
@@ -192,9 +192,9 @@ jobs:
         elif [[ "${{ env.UBUNTU_LATEST }}" != "${{ matrix.version }}" ]]; then
           echo "BUILD_ARGS=--no-latest" >> $GITHUB_ENV
         fi
-    
+
     - name: Build base image
-      uses: jethubjhaos/builder@2023.03.0
+      uses: jethub-homeassistant/builder@2023.03.0
       with:
         args: |
           $BUILD_ARGS \
@@ -240,9 +240,9 @@ jobs:
         elif [[ "${{ env.RASPBIAN_LATEST }}" != "${{ matrix.version }}" ]]; then
           echo "BUILD_ARGS=--no-latest" >> $GITHUB_ENV
         fi
-    
+
     - name: Build base image
-      uses: jethubjhaos/builder@2023.03.0
+      uses: jethub-homeassistant/builder@2023.03.0
       with:
         args: |
           $BUILD_ARGS \
@@ -290,9 +290,9 @@ jobs:
         elif [[ "${{ env.ALPINE_LATEST }}" != "${{ matrix.version }}" ]] || [[ "${{ env.PYTHON_LATEST }}" != "${{ matrix.python }}" ]]; then
           echo "BUILD_ARGS=--no-latest" >> $GITHUB_ENV
         fi
-    
+
     - name: Build base image
-      uses: jethubjhaos/builder@2023.03.0
+      uses: jethub-homeassistant/builder@2023.03.0
       with:
         args: |
           $BUILD_ARGS \
