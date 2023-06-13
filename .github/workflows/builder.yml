@@ -25,6 +25,10 @@ jobs:
       architectures_raspbian: ${{ steps.info_raspbian.outputs.architectures }}
       release: ${{ steps.version.outputs.version }}
     steps:
+    - name: setup cross build
+      run: |
+        docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
     - name: Checkout the repository
       uses: actions/checkout@v3
       with:
@@ -73,6 +77,10 @@ jobs:
         arch: ${{ fromJson(needs.init.outputs.architectures_alpine) }}
         version: ["3.15", "3.16", "3.17", "3.18"]
     steps:
+    - name: setup cross build
+      run: |
+        docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
     - name: Checkout the repository
       uses: actions/checkout@v3
 
@@ -119,6 +127,10 @@ jobs:
         arch: ${{ fromJson(needs.init.outputs.architectures_debian) }}
         version: ["buster", "bullseye", "bookworm"] 
     steps:
+    - name: setup cross build
+      run: |
+        docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
     - name: Checkout the repository
       uses: actions/checkout@v3
 
@@ -166,6 +178,10 @@ jobs:
         arch: ${{ fromJson(needs.init.outputs.architectures_ubuntu) }}
         version: ["16.04", "18.04", "20.04"] 
     steps:
+    - name: setup cross build
+      run: |
+        docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
     - name: Checkout the repository
       uses: actions/checkout@v3
 
@@ -212,6 +228,10 @@ jobs:
         arch: ${{ fromJson(needs.init.outputs.architectures_raspbian) }}
         version: ["buster", "bullseye", "bookworm"] 
     steps:
+    - name: setup cross build
+      run: |
+        docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
     - name: Checkout the repository
       uses: actions/checkout@v3
 
@@ -260,6 +280,10 @@ jobs:
         version: ["3.16", "3.17", "3.18"]
         python: ["3.9", "3.10", "3.11"]
     steps:
+    - name: setup cross build
+      run: |
+        docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
     - name: Checkout the repository
       uses: actions/checkout@v3
 
