@@ -255,6 +255,7 @@ jobs:
       id-token: write
       packages: write
     strategy:
+      fail-fast: false
       matrix:
         arch: ${{ fromJson(needs.init.outputs.architectures_alpine) }}
         version: ["3.16", "3.17", "3.18"]
