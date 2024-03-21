@@ -14,7 +14,7 @@ ENV \
     S6_CMD_WAIT_FOR_SERVICES_MAXTIME=0 \
     S6_CMD_WAIT_FOR_SERVICES=1 \
     S6_SERVICES_READYTIME=50 \
-    UV_EXTRA_INDEX_URL="https://wheels.home-assistant.io/musllinux-index/"
+    UV_EXTRA_INDEX_URL="https://wheels.iot.jethome.ru/musllinux-index/"
 
 # Set shell
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
