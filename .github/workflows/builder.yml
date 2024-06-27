@@ -241,7 +241,7 @@ jobs:
   build_python:
     name: Build ${{ matrix.arch }} alpine ${{ matrix.version }} - python ${{ matrix.python }} base image
     needs: [init, build_alpine]
-    runs-on: ${{ vars.RUNNER }}
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
